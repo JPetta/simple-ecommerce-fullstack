@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "8e56a4db-9f7f-4e67-87fc-505346446da7",
+		"name": "simpleshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "10460702"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response status is 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Parse the response body as JSON\r",
+									"const responseBody = pm.response.json();\r",
+									"\r",
+									"// Extract the token from the response body\r",
+									"const token = responseBody.token;\r",
+									"\r",
+									"// Store the token in a Postman environment variable\r",
+									"pm.environment.set(\"token\", token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin_password",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:3000/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "/register",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-variant",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/product/"
+					},
+					"response": []
+				},
+				{
+					"name": "/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "localhost:3000/product/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-category",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/product-category/"
+					},
+					"response": []
+				},
+				{
+					"name": "/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "localhost:3000/product-category/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/transaction/"
+					},
+					"response": []
+				},
+				{
+					"name": "/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "localhost:3000/transaction/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction-detail",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/transaction-detail/"
+					},
+					"response": []
+				},
+				{
+					"name": "/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "localhost:3000/transaction-detail/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:3000/product-variant/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

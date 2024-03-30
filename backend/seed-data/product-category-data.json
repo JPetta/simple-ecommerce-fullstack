@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Makanan",
+    "active": true,
+    "created_user": "admin",
+    "created_date": "2023-02-01 07:00:00",
+    "updated_user": "admin",
+    "updated_date": "2023-02-01 07:00:00"
+  },
+  {
+    "id": 2,
+    "name": "Minuman",
+    "active": true,
+    "created_user": "admin",
+    "created_date": "2023-02-01 07:00:00",
+    "updated_user": "admin",
+    "updated_date": "2023-02-01 07:00:00"
+  }
+]
